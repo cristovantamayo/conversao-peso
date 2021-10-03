@@ -21,7 +21,7 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 8090
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -31,7 +31,8 @@ spec:
   selector:
     app: conversao-peso
   ports:
-  - port: 8090
+  - port: 80
+    targetPort: 8080
     protocol: TCP
     name: http
   type: LoadBalancer
